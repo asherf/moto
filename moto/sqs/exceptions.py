@@ -24,12 +24,13 @@ class QueueDoesNotExist(RESTError):
 
     def __init__(self):
         super(QueueDoesNotExist, self).__init__(
-            "QueueDoesNotExist", "The specified queue does not exist for this wsdl version.")
+            "QueueDoesNotExist",
+            "The specified queue does not exist for this wsdl version.",
+        )
 
 
 class QueueAlreadyExists(RESTError):
     code = 400
 
     def __init__(self, message):
-        super(QueueAlreadyExists, self).__init__(
-            "QueueAlreadyExists", message)
+        super(QueueAlreadyExists, self).__init__("QueueAlreadyExists", message)
