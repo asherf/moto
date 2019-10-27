@@ -13,9 +13,9 @@ init:
 	@pip install -r requirements-dev.txt
 
 lint:
-	flake8 moto
+	black --check moto/ tests/
 
-test: lint
+test:
 	rm -f .coverage
 	rm -rf cover
 	@nosetests -sv --with-coverage --cover-html ./tests/ $(TEST_EXCLUDE)
