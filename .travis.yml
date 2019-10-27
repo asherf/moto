@@ -30,6 +30,7 @@ install:
   fi
 script:
 - make test
+- if [[ $TRAVIS_PYTHON_VERSION == "3.7" ]]; then black --check moto/; fi
 after_success:
 - coveralls
 before_deploy:
