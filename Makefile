@@ -13,6 +13,7 @@ init:
 	@pip install -r requirements-dev.txt
 
 lint:
+	flake8 moto
 	black --check moto/ tests/
 
 test:
