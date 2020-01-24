@@ -3,7 +3,7 @@ SHELL := /bin/bash
 ifeq ($(TEST_SERVER_MODE), true)
 	# exclude test_iot and test_iotdata for now
 	# because authentication of iot is very complicated
-	TEST_EXCLUDE :=  --exclude='test_iot.*'
+	TEST_EXCLUDE :=  --ignore-glob=='test_iot.*'
 else
 	TEST_EXCLUDE :=
 endif
@@ -19,7 +19,8 @@ lint:
 test-only:
 	rm -f .coverage
 	rm -rf cover
-	@nosetests -sv --with-coverage --cover-html ./tests/ $(TEST_EXCLUDE)
+	pytest --cov=moto  ./tests/ $(TEST_EXCLUDE)
+	coverage html
 
 
 test: lint test-only

@@ -1,6 +1,8 @@
 -r requirements.txt
 mock
 nose
+pytest
+pytest-cov
 black; python_version >= '3.6'
 regex==2019.11.1; python_version >= '3.6'   # Needed for black
 sure==1.4.11
